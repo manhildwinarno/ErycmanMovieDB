@@ -1,33 +1,36 @@
-const search = document.getElementById("search-input");
+const search = document.querySelectorAll(".search-input");
 const modalWrapper = document.getElementById("modal-wrapper");
 const modalBackdrop = document.getElementById("modal-backdrop");
 
-function debounce(func, delay) {
-  let timeout;
-  return function(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  }
-}
+const searchContainer = document.querySelector(".search-container");
+const homeContainer = document.querySelector(".home-container");
 
-const debounceSearch = debounce(searchMovie, 500);
-
-search.addEventListener("keyup", function(e) {
-  if (e.key === "Enter") {
-    searchMovie();
-  }
+search.forEach(s => {
+  s.addEventListener("keyup", function(e) {
+    if (e.key === "Enter") {
+      const keyword = this.value;
+      searchMovie(keyword);
+    }
+  });
 });
 
 
-function searchMovie() {
+function searchMovie(keyword) {
 
-  fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${search.value}`)
+  fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${keyword}`)
     .then(response => response.json())
     .then(response => {
-      const movies = response.Search;
+      searchContainer.classList.remove("hidden");
+      homeContainer.classList.add("hidden");
+
       const movieContainer = document.querySelector(".movie-container");
+      movieContainer.innerHTML = ""; 
+      if (response.Response === "False") {
+         movieContainer.innerHTML = `<p class="col-span-full text-center text-red-500 py-10">${response.Error}</p>`;
+         return;
+      }
+
+      const movies = response.Search;
       movies.forEach(m => {
         movieContainer.innerHTML += 
         `<div class="bg-gray-200 flex flex-col w-full rounded-lg shadow-sm overflow-hidden pb-3">
@@ -40,7 +43,7 @@ function searchMovie() {
             <button data-imdbid="${m.imdbID}" class="open-modal-detail mt-auto text-xs text-black border border-gray-400 py-1.5 px-3 rounded hover:bg-gray-300 font-medium transition-colors cursor-pointer">Read more</button>
           </div>
         </div>`
-        search.value = "";
+        keyword = "";
       });
 
       const openModalBtn = document.querySelectorAll(".open-modal-detail");

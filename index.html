@@ -7,9 +7,9 @@
   <link rel="icon" sizes="32x32" href="img/eryc icon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
-  <title>ErycMovie</title>
+  <title>ErycMovieDB</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
   <nav class="bg-white shadow md:flex md:items-center md:justify-between relative z-[100]">
     <div class="logo-menu flex justify-between items-center z-10">
       <img class="h-16 inline" src="img/Logo Eryc.png" alt="Logo ErycMovie Website">
@@ -20,7 +20,7 @@
     <ul class="mobile-menu flex flex-col md:flex-row md:items-center absolute md:static bg-white md:bg-transparent w-full left-0 md:w-auto py-6 md:py-0 px-4 md:px-0 opacity-0 -translate-y-full md:translate-y-0 md:opacity-100 top-full transition-all ease-in-out duration-500 shadow-md md:shadow-none z-[-1] md:z-auto">
       
       <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
-        <a href="main.html" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Home</a>
+        <a href="index.html" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Home</a>
       </li>
       
       <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
@@ -30,6 +30,7 @@
       <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
         <a href="#" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Favourites</a>
       </li>
+      
       <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
         <button class="bg-cyan-500 text-white text-sm font-[Poppins] font-medium transition-colors duration-300 px-6 py-2 hover:bg-cyan-600 rounded cursor-pointer w-full md:w-auto shadow-sm">
           Login
@@ -38,7 +39,7 @@
       
     </ul>
   </nav>
-  <main class="main-page">
+  <main class="main-page flex-1">
     <section class="home-container">
       <div class="text-center flex flex-col justify-center items-center h-96 pt-12 relative z-10 px-4">
         <h1 class="text-5xl text-shadow-sm md:text-7xl tracking-tight z-10 relative">Eryc<span class="font-bold">Movie</span></h1>
@@ -86,34 +87,35 @@
         </div>
       </div>
       
-      <!-- Movie container -->
       <div class="movie-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mx-auto">
-      
+        <!-- Movie container -->
+         
+        <!-- Movie container end -->
       </div>
-      <!-- Movie container end -->
+
     </section>
     <div id="modal-wrapper" class="fixed z-[150] inset-0 hidden">
         <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity"></div>
         <div class="flex items-center justify-center min-h-screen px-4 py-8 pointer-events-none">
           <div class="bg-white rounded-xl max-w-[340px] md:max-w-3xl lg:max-w-4xl w-full relative p-6 md:p-8 pointer-events-auto max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
-            <!-- Modal Body -->
+
             <div class="modal-body flex flex-col md:flex-row items-center md:items-start gap-6 lg:gap-8">
+              <!-- Modal Body -->
   
+              <!-- Modal Body End -->
             </div>
-            <!-- Modal Body End -->
+
           </div>
         </div>
       </div>
   </main>
   
-  <footer class="flex flex-col justify-center items-center gap-5 pt-10 pb-4 bg-gray-100">
+  <footer class="flex flex-col justify-center items-center gap-5 pt-10 pb-4 bg-gray-100 min-h-full">
     <div class="social flex flex-col justify-center items-center gap-6 mb-7">
       <h5 class="font-semibold text-lg">Follow Eryc on Social</h5>
       <div class="social-media flex justify-center items-center gap-10">
-        <i class="fa-brands fa-tiktok text-xl"></i>
         <a href="https://www.instagram.com/manhillih/" target="_blank"><i class="fa-brands fa-instagram text-xl"></i></a>
         <a href="https://www.youtube.com/channel/UCvSDzPo9iBJlbo4N_HpYqYw" target="_blank"><i class="fa-brands fa-youtube text-xl"></i></a>
-        <i class="fa-brands fa-square-linkedin text-xl"></i>
         <a href="https://github.com/manhildwinarno" target="_blank"><i class="fa-brands fa-github text-xl"></i></a>
       </div>
     </div>

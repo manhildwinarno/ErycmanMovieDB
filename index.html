@@ -1,13 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" sizes="32x32" href="img/eryc icon.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>react-manhill-movie-website</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="icon" sizes="32x32" href="img/eryc icon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>ErycMovieDB</title>
+</head>
+<body class="flex flex-col min-h-screen">
+  <nav class="bg-white shadow md:flex md:items-center md:justify-between relative z-[100]">
+    <div class="logo-menu flex justify-between items-center z-10">
+      <img class="h-16 inline" src="img/Logo Eryc.png" alt="Logo ErycMovie Website">
+      <span class="text-2xl cursor-pointer md:hidden block">
+        <i class="fa-solid fa-bars ham-menu"></i>
+      </span>
+    </div>
+    <ul class="mobile-menu flex flex-col md:flex-row md:items-center absolute md:static bg-white md:bg-transparent w-full left-0 md:w-auto py-6 md:py-0 px-4 md:px-0 opacity-0 -translate-y-full md:translate-y-0 md:opacity-100 top-full transition-all ease-in-out duration-500 shadow-md md:shadow-none z-[-1] md:z-auto">
+      
+      <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
+        <a href="index.html" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Home</a>
+      </li>
+      
+      <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
+        <a href="#features" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Features</a>
+      </li>
+      
+      <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
+        <a href="#" id="favourites" class="text-base font-medium hover:text-cyan-500 transition-colors duration-300">Favourites</a>
+      </li>
+      
+      <li class="my-4 md:mx-4 md:my-0 text-center md:text-left">
+        <button class="bg-cyan-500 text-white text-sm font-[Poppins] font-medium transition-colors duration-300 px-6 py-2 hover:bg-cyan-600 rounded cursor-pointer w-full md:w-auto shadow-sm">
+          Login
+        </button>
+      </li>
+      
+    </ul>
+  </nav>
+  <main class="main-page flex-1">
+    <section class="home-container">
+      <div class="text-center flex flex-col justify-center items-center h-96 pt-12 relative z-10 px-4">
+        <h1 class="text-5xl text-shadow-sm md:text-7xl tracking-tight z-10 relative">Eryc<span class="font-bold">Movie</span></h1>
+        <p class="text-xl md:text-2xl mt-4">Explore Every Best Movie</p>
+        <div class="mt-8 relative">
+          <input type="text" placeholder="Search Movies..." class="search-input w-full md:w-96 pl-6 pr-12 py-3 block border border-gray-300 rounded-full hover:ring-2 hover:ring-black transition-all duration-500  focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow-sm">
+          <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+  
+      <div class="flex flex-col justify-center items-center px-16 py-20 gap-3" id="features">
+        <h3 class="features-title text-3xl font-bold text-center">Our Best Features</h3>
+        <hr class="w-24">
+        <div class="cards flex justify-evenly items-center flex-col lg:flex-row gap-9 mt-10">
+          <div class="card bg-gray-50 border-1 border-gray-200 max-w-sm w-full h-auto lg:h-72 py-5 px-5 gap-9 flex flex-col justify-center items-center shadow-lg cursor-pointer hover:-translate-y-3 transition-all duration-500 ease-in-out rounded-md">
+            <i class="fa-solid fa-magnifying-glass text-black text-5xl self-start"></i>
+            <div class="desc flex flex-col gap-2">
+              <h4 class="font-semibold text-2xl">Easy Movie Search</h4>
+              <p class="text-base">Find your favorite movies quickly using a fast and simple search feature.</p>
+            </div>
+          </div>
+          <div class="card bg-gray-50 border-1 border-gray-200 max-w-sm w-full h-auto lg:h-72 py-5 px-5 gap-9 flex flex-col justify-center items-center shadow-lg cursor-pointer hover:-translate-y-3 transition-all duration-500 ease-in-out rounded-md">
+            <i class="fa-solid fa-clapperboard text-black text-5xl self-start"></i>
+            <div class="desc flex flex-col gap-2">
+              <h4 class="font-semibold text-2xl">Complete Movie Information</h4>
+              <p class="text-base">View detailed information about movies, including synopsis, ratings, and other important details.</p>
+            </div>
+          </div>
+          <div class="card bg-gray-50 border-1 border-gray-200 max-w-sm w-full h-auto lg:h-72 py-5 px-5 gap-9 flex flex-col justify-center items-center shadow-lg cursor-pointer hover:-translate-y-3 transition-all duration-500 ease-in-out rounded-md">
+            <i class="fa-solid fa-bookmark text-black text-5xl self-start"></i>
+            <div class="desc flex flex-col gap-2">
+              <h4 class="font-semibold text-2xl">Save Favorite Movies</h4>
+              <p class="text-base">Add movies to your watchlist so you can easily find and watch them later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-container max-w-5xl min-h-60 mx-auto mt-12 px-4 mb-20 relative z-10 hidden">
+      <div class="text-center flex flex-col justify-center items-center px-4 mb-12">
+        <div class="relative w-full max-w-md">
+          <input type="text" placeholder="Search Movies..." class="search-input w-full pl-6 pr-12 py-3 block border border-gray-300 rounded-full hover:ring-2 hover:ring-black transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow-sm">
+          <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+
+      <div class="flex">
+        <p class="watchlist-section-title text-2xl font-bold">Watchlists</p>
+      </div>
+      
+      <div class="movie-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mx-auto">
+        <!-- Movie container -->
+         
+        <!-- Movie container end -->
+      </div>
+
+    </section>
+    <div id="modal-wrapper" class="fixed z-[150] inset-0 hidden">
+      <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity"></div>
+      <div class="flex items-center justify-center min-h-screen px-4 py-8 pointer-events-none">
+        <div class="bg-white rounded-xl max-w-[340px] md:max-w-3xl lg:max-w-4xl w-full relative p-6 md:p-8 pointer-events-auto max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+
+          <div class="modal-body flex flex-col md:flex-row items-center md:items-start gap-6 lg:gap-8">
+            <!-- Modal Body -->
+
+            <!-- Modal Body End -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="flex flex-col justify-center items-center gap-5 pt-10 pb-4 bg-gray-100 min-h-full">
+    <div class="social flex flex-col justify-center items-center gap-6 mb-7">
+      <h5 class="font-semibold text-lg">Follow Eryc on Social</h5>
+      <div class="social-media flex justify-center items-center gap-10">
+        <a href="https://www.instagram.com/manhillih/" target="_blank"><i class="fa-brands fa-instagram text-xl"></i></a>
+        <a href="https://www.youtube.com/channel/UCvSDzPo9iBJlbo4N_HpYqYw" target="_blank"><i class="fa-brands fa-youtube text-xl"></i></a>
+        <a href="https://github.com/manhildwinarno" target="_blank"><i class="fa-brands fa-github text-xl"></i></a>
+      </div>
+    </div>
+    <div class="add-on md:grid md:grid-cols-(--grid-col-med) place-content-center xl:grid-cols-3 xl:px-96 text-center w-full">
+      <p class="text-sm">Help</p>
+      <p class="text-sm">Conditions of Use</p>
+      <p class="text-sm">Privacy Policy</p>
+    </div>
+    <img class="h-16 inline" src="img/Logo Eryc.png" alt="Logo ErycMovie Website">
+    <p class="text-gray-400 text-sm">&copy; 2026 by Eryc.com, Inc</p>
+  </footer>
+  <script src="js/api.js"></script>
+  <script>
+    const hamMenu = document.querySelector(".ham-menu");
+    const list = document.querySelector(".mobile-menu");
+    
+
+    hamMenu.addEventListener("click", function() {
+      if (hamMenu.classList.contains("fa-bars")) {
+        hamMenu.classList.replace("fa-bars", "fa-xmark");
+        list.classList.remove("-translate-y-full", "opacity-0");
+      } else {
+        hamMenu.classList.replace("fa-xmark", "fa-bars");
+        list.classList.add("-translate-y-full", "opacity-0");
+      }
+    });
+  </script>
+  <script src="js/script.js"></script>
+</body>
 </html>

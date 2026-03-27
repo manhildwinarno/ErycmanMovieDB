@@ -1,4 +1,3 @@
-import SearchBar from "../components/SearchBar"
 import FeatureCard from "../components/FeatureCard"
 
 function Home({children}) {
@@ -10,9 +9,6 @@ function Home({children}) {
           <p className="text-xl md:text-2xl mt-4">Explore Every Best Movie</p>
           {children}
         </div>
-
-        
-    
         <div className="flex flex-col justify-center items-center px-16 py-20 gap-3" id="features">
           <h3 className="features-title text-3xl font-bold text-center">Our Best Features</h3>
           <hr className="w-24"/>

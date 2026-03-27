@@ -1,4 +1,4 @@
-
+import { FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -6,9 +6,9 @@ function Footer() {
       <div className="social flex flex-col justify-center items-center gap-6 mb-7">
         <h5 className="font-semibold text-lg">Follow Eryc on Social</h5>
         <div className="social-media flex justify-center items-center gap-10">
-          <a href="https://www.instagram.com/manhillih/" target="_blank"><i className="fa-brands fa-instagram text-xl"></i></a>
-          <a href="https://www.youtube.com/channel/UCvSDzPo9iBJlbo4N_HpYqYw" target="_blank"><i className="fa-brands fa-youtube text-xl"></i></a>
-          <a href="https://github.com/manhildwinarno" target="_blank"><i className="fa-brands fa-github text-xl"></i></a>
+          <a href="https://www.instagram.com/manhillih/" target="_blank"><FaInstagram className="text-xl"/></a>
+          <a href="https://www.youtube.com/channel/UCvSDzPo9iBJlbo4N_HpYqYw" target="_blank"><FaYoutube className="text-xl"/></a>
+          <a href="https://github.com/manhildwinarno" target="_blank"><FaGithub className="text-xl"/></a>
         </div>
       </div>
       <div className="add-on md:grid md:grid-cols-(--grid-col-med) place-content-center xl:grid-cols-3 xl:px-96 text-center w-full">

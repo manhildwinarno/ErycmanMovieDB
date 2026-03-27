@@ -1,4 +1,4 @@
-import { FaBookmark } from "react-icons/fa";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 function MovieCard({ movie }) {  
   return (

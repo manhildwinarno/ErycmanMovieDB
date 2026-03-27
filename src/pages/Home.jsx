@@ -1,14 +1,14 @@
 import SearchBar from "../components/SearchBar"
 import FeatureCard from "../components/FeatureCard"
 
-function Home() {
+function Home({children}) {
   return (
     <>
       <section className="home-container">
         <div className="text-center flex flex-col justify-center items-center h-96 pt-12 relative z-10 px-4">
           <h1 className="text-5xl text-shadow-sm md:text-7xl tracking-tight z-10 relative">Eryc<span className="font-bold">Movie</span></h1>
           <p className="text-xl md:text-2xl mt-4">Explore Every Best Movie</p>
-          <SearchBar style="mt-8 relative"/>
+          {children}
         </div>
 
         

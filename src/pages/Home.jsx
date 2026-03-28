@@ -11,7 +11,7 @@ function Home({children}) {
           <p className="text-xl md:text-2xl mt-4">Explore Every Best Movie</p>
           {children}
         </div>
-        <div className="flex flex-col justify-center items-center px-16 py-20 gap-3" id="features">
+        <div className="flex flex-col justify-center items-center px-16 py-20 gap-3">
           <h3 className="features-title text-3xl font-bold text-center">Our Best Features</h3>
           <hr className="w-24"/>
           <div className="cards flex justify-evenly items-center flex-col lg:flex-row gap-9 mt-10">

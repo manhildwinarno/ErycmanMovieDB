@@ -1,4 +1,6 @@
 import FeatureCard from "../components/FeatureCard"
+import { FaClapperboard } from "react-icons/fa6";
+import { FaSearch, FaBookmark } from "react-icons/fa";
 
 function Home({children}) {
   return (
@@ -13,9 +15,9 @@ function Home({children}) {
           <h3 className="features-title text-3xl font-bold text-center">Our Best Features</h3>
           <hr className="w-24"/>
           <div className="cards flex justify-evenly items-center flex-col lg:flex-row gap-9 mt-10">
-            <FeatureCard title="Easy Movie Search" caption="Find your favorite movies quickly using a fast and simple search feature."/>
-            <FeatureCard title="Complete Movie Information" caption="View detailed information about movies, including synopsis, ratings, and other important details."/>
-            <FeatureCard title="Save Favorite Movies" caption="Add movies to your watchlist so you can easily find and watch them later."/>
+            <FeatureCard icon={FaSearch} title="Easy Movie Search" caption="Find your favorite movies quickly using a fast and simple search feature."/>
+            <FeatureCard icon={FaClapperboard} title="Complete Movie Information" caption="View detailed information about movies, including synopsis, ratings, and other important details."/>
+            <FeatureCard icon={FaBookmark} title="Save Favorite Movies" caption="Add movies to your watchlist so you can easily find and watch them later."/>
           </div>
         </div>
       </section>

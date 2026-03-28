@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { searchMovies, getPopularMovies } from "./services/api"
+import { MovieProvider } from './contexts/useContext';
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
@@ -56,25 +57,27 @@ function App() {
   }  
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      <NavBar/>
-      <main className='main-content'>
-        <Routes>
-          <Route path='/' element={
-            <Home>
-              <SearchBar className="mt-8 relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
-            </Home>
-            }/>
-          <Route path='/favorites' element={<Favorites/>}/>
-          <Route path='/explore' element={
-            <Explore movies={movies} loading={loading} error={error}>
-              <SearchBar className="relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
-            </Explore>
-            }/>
-        </Routes>
-      </main>
-      <Footer/>
-    </div>
+    <MovieProvider>
+      <div className=" className='flex flex-col min-h-screen'">
+        <NavBar/>
+        <main className='main-content'>
+          <Routes>
+            <Route path='/' element={
+              <Home>
+                <SearchBar className="mt-8 relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
+              </Home>
+              }/>
+            <Route path='/favorites' element={<Favorites/>}/>
+            <Route path='/explore' element={
+              <Explore movies={movies} loading={loading} error={error}>
+                <SearchBar className="relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
+              </Explore>
+              }/>
+          </Routes>
+        </main>
+        <Footer/>
+      </div>
+    </MovieProvider>
   )
 }
 

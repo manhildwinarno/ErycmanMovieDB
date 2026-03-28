@@ -27,10 +27,10 @@ function Footer() {
           <p className="text-sm">Privacy Policy</p>
         </div>
         <div className="flex flex-col items-center gap-4 order-2 md:order-1">
-          <button className="cursor-pointer p-2 border border-gray-800 w-full"><a href="https://github.com/manhildwinarno/ErycmanMovieDB" target="_blank">Github Repository</a></button>
+          <button className="cursor-pointer font-medium p-2 border border-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300 w-full"><a href="https://github.com/manhildwinarno/ErycmanMovieDB" target="_blank">Github Repository</a></button>
           <div className="flex gap-0 border border-gray-600 w-full">
             <input type="text" className="p-2 outline-none" placeholder="Send me an email"/>
-            <button type="submit" className="bg-gray-600 text-white p-2 cursor-pointer">Send</button>
+            <button type="submit" className="bg-gray-600 text-white p-2 cursor-pointer transition-all duration-300 hover:bg-gray-800">Send</button>
           </div>
         </div>
       </div>

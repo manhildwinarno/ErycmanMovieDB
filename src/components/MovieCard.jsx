@@ -15,7 +15,7 @@ function MovieCard({ movie, handleModal }) {
     <div className="bg-gray-200 flex flex-col w-full rounded-lg shadow-sm overflow-hidden pb-3">
       <div className="w-full shrink-0 bg-gray-300 aspect-2/3 block relative">
         <img className="w-full h-full object-cover object-center block" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
-        <FaBookmark className={`text-xl absolute top-1 right-1 cursor-pointer ${favorite ? "text-red-600" : ""}`} onClick={handleFavorite}/>
+        <FaBookmark className={`text-xl absolute top-1 right-1 cursor-pointer transition-colors duration-300 ${favorite ? "text-cyan-500" : "text-white"}`} onClick={handleFavorite}/>
       </div>
       <div className="pt-3 px-3 flex flex-col grow text-center">
         <h4 className="text-sm md:text-base font-semibold tracking-tight text-gray-900 line-clamp-2 mb-1">{movie.title}</h4>

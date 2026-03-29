@@ -1,1 +1,0 @@
-const OMDB_KEY = "API_KEY";

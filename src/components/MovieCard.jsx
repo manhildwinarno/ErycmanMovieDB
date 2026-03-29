@@ -1,7 +1,7 @@
 import { FaBookmark } from "react-icons/fa";
 import { useMovieContext } from "../contexts/useContext";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, handleModal }) {
   const {isFavorite, addToFavorites, removeFromFavorites} = useMovieContext()
   const favorite = isFavorite(movie.id)
 
@@ -20,7 +20,7 @@ function MovieCard({ movie }) {
       <div className="pt-3 px-3 flex flex-col grow text-center">
         <h4 className="text-sm md:text-base font-semibold tracking-tight text-gray-900 line-clamp-2 mb-1">{movie.title}</h4>
         <p className="text-xs md:text-sm text-gray-700 mb-2">{movie.release_date?.split("-")[0]}</p>
-        <button data-imdbid="${movie.imdbID}" className="open-modal-detail mt-auto text-xs text-black border border-gray-400 py-1.5 px-3 rounded hover:bg-gray-300 font-medium transition-colors cursor-pointer">Read more</button>
+        <button className="open-modal-detail mt-auto text-xs text-black border border-gray-400 py-1.5 px-3 rounded hover:bg-gray-300 font-medium transition-colors cursor-pointer" onClick={() => handleModal(movie)}>Read more</button>
       </div>
     </div>
   )

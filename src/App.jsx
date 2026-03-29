@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import { searchMovies, getPopularMovies } from "./services/api"
+import { searchMovies, getPopularMovies, movieDetail } from "./services/api"
 import { MovieProvider } from './contexts/useContext';
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
@@ -18,6 +18,7 @@ function App() {
   const [movies, setMovies] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [selectedMovie, setSelectedMovie] = useState(null)
 
   useEffect(() => {
     const loadPopularMovies = async () => {
@@ -54,7 +55,19 @@ function App() {
       setLoading(false)
     }
     setSearchQuery("")
-  }  
+  }
+
+  const handleModal = async (movie) => {
+    try {
+      const movieDetailResult = await movieDetail(movie.id)
+      setSelectedMovie(movieDetailResult)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleCloseModal = () => setSelectedMovie(null)
+
 
   return (
     <MovieProvider>
@@ -67,9 +80,9 @@ function App() {
                 <SearchBar className="mt-8 relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
               </Home>
               }/>
-            <Route path='/favorites' element={<Favorites/>}/>
+            <Route path='/favorites' element={<Favorites handleModal={handleModal} selectedMovie={selectedMovie} handleCloseModal={handleCloseModal}/>}/>
             <Route path='/explore' element={
-              <Explore movies={movies} loading={loading} error={error}>
+              <Explore movies={movies} loading={loading} error={error} handleModal={handleModal} selectedMovie={selectedMovie} handleCloseModal={handleCloseModal}>
                 <SearchBar className="relative flex" searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}/>
               </Explore>
               }/>

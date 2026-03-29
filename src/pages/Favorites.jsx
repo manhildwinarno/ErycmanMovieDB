@@ -1,7 +1,8 @@
 import { useMovieContext } from "../contexts/useContext"
 import MovieCard from "../components/MovieCard"
+import Modal from "../components/Modal"
 
-function Favorites() {
+function Favorites({ handleModal, selectedMovie, handleCloseModal }) {
   const {favorites} = useMovieContext()
 
   if (favorites && favorites.length > 0) {
@@ -16,7 +17,7 @@ function Favorites() {
           <div className="movie-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mx-auto">
             {/* <!-- Movie container --> */}
             {favorites.map((movie) => 
-              <MovieCard movie={movie} key={movie.id}/>
+              <MovieCard movie={movie} key={movie.id} handleModal={handleModal}/>
             )}
             {/* <!-- Movie container end --> */}
           </div>
@@ -34,6 +35,7 @@ function Favorites() {
             </div>
           </div>
         </div>
+        <Modal movie={selectedMovie} onClose={handleCloseModal}/>
       </>
     )
   }

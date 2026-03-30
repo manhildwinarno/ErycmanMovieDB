@@ -46,9 +46,9 @@ function NavBar() {
 
   return (
     <nav className="bg-white shadow md:flex md:items-center md:justify-between relative z-100">
-      <div className="logo-menu flex justify-between items-center z-10">
+      <div className="logo-menu flex justify-between items-center py-3 md:py-5 z-10">
         <Link to="/">
-          <img className="h-16 inline" src="img/Logo Eryc.png" alt="ErycMovie Website"/>
+          <img className="w-16 inline" src="img/Logo Eryc.png" alt="ErycMovie Website"/>
         </Link>
         <div className="text-2xl cursor-pointer md:hidden block">
           <button onClick={toggleNavBar}>

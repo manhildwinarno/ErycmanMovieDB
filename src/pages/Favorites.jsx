@@ -1,9 +1,10 @@
-import { useMovieContext } from "../contexts/useContext"
-import MovieCard from "../components/MovieCard"
-import Modal from "../components/Modal"
+import { useMovieContext } from "../contexts/MovieContext";
+import MovieCard from "../components/MovieCard";
+import Modal from "../components/Modal";
 
-function Favorites({ handleModal, setSelectedMovie, selectedMovie, handleCloseModal }) {
-  const {favorites} = useMovieContext()
+function Favorites() {
+  const { handleModal, selectedMovie, handleCloseModal, favorites } =
+    useMovieContext();
 
   if (favorites && favorites.length > 0) {
     return (
@@ -16,15 +17,19 @@ function Favorites({ handleModal, setSelectedMovie, selectedMovie, handleCloseMo
           </div>
           <div className="movie-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mx-auto">
             {/* <!-- Movie container --> */}
-            {favorites.map((movie) => 
-              <MovieCard movie={movie} key={movie.id} handleModal={handleModal}/>
-            )}
+            {favorites?.map((movie) => (
+              <MovieCard
+                movie={movie}
+                key={movie.id}
+                handleModal={handleModal}
+              />
+            ))}
             {/* <!-- Movie container end --> */}
           </div>
         </section>
-        <Modal movie={selectedMovie} onClose={handleCloseModal}/>
+        <Modal movie={selectedMovie} onClose={handleCloseModal} />
       </>
-    )
+    );
   }
   return (
     <div className="max-w-5xl min-h-80 mx-auto mt-12 px-4 mb-20 ">
@@ -33,7 +38,7 @@ function Favorites({ handleModal, setSelectedMovie, selectedMovie, handleCloseMo
         <p>Start adding movies to your favorites and they will appear here</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Favorites
+export default Favorites;
